@@ -1,5 +1,6 @@
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -33,19 +34,29 @@ public class Vista extends Application{
         TextField textField = new TextField();
         
 //GridPane
-GridPane gridpane = new GridPane();
-ColumnConstraints col1 = new ColumnConstraints();
-col1.setPercentWidth(20);
-ColumnConstraints col2 = new ColumnConstraints();
-col2.setPercentWidth(30);
-gridpane.getColumnConstraints().addAll(col1,col2,col2,col1);
+GridPane pane = new GridPane();
+        pane.setAlignment(Pos.TOP_LEFT);
+        pane.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
+        pane.setHgap(5.5);
+        pane.setVgap(5.5);
+        pane.add(new Label("Bienvenidos"), 0, 0);
+        pane.add(new Label("Name:"), 0, 1);
+        pane.add(new TextField(), 1, 1);
+        pane.add(new Label("Apellido:"), 0, 2);
+        pane.add(new TextField(), 1, 2);
+        Button bt1 = new Button("Insertar");
+        Button bt2 = new Button("Listar Todo");
+        pane.add(bt1, 1, 3);
+        pane.add(bt2, 3, 3);
+        GridPane.setHalignment(bt1, HPos.RIGHT);
+        GridPane.setHalignment(bt2, HPos.RIGHT);
+
 //VBox
         VBox vlayout = new VBox();
-        vlayout.getChildren().add(gridpane);
+        vlayout.getChildren().add(pane);
 //Scene 
         Scene s = new Scene(vlayout, 500, 500);
-        stage.setTitle("MyJavaFX");
-
+        stage.setTitle("Vista");
         stage.setScene(s);
         stage.show();
 
@@ -53,7 +64,6 @@ gridpane.getColumnConstraints().addAll(col1,col2,col2,col1);
         
     }
     
-
     public static void main(String[] args) {
         Application.launch(args);
     }
