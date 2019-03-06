@@ -27,12 +27,7 @@ public class Vista extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Label label1 = new Label("Bienvenidos");
-        Label label4 = new Label("nombre: ");
-        TextField textField1 = new TextField();
-        Label label2 = new Label("Direccion");
-        TextField textField = new TextField();
-        
+
 //GridPane
 GridPane pane = new GridPane();
         pane.setAlignment(Pos.TOP_LEFT);
@@ -55,7 +50,7 @@ GridPane pane = new GridPane();
         VBox vlayout = new VBox();
         vlayout.getChildren().add(pane);
 //Scene 
-        Scene s = new Scene(vlayout, 500, 500);
+        Scene s = new Scene(vlayout, 400, 200);
         stage.setTitle("Vista");
         stage.setScene(s);
         stage.show();
@@ -64,6 +59,10 @@ GridPane pane = new GridPane();
         
     }
     
+//    public GridPane getPanel(){
+//        return pane;
+//    }
+//    
     public static void main(String[] args) {
         Application.launch(args);
     }
